@@ -1,5 +1,6 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const SECRET = 'games-portal-secret-2024';
+const SECRET = process.env.JWT_SECRET || 'games-portal-secret-2024';
 
 function requireAuth(req, res, next) {
   const auth = req.headers.authorization;

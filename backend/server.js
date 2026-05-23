@@ -15,5 +15,5 @@ app.use('/comments', require('./routes/comments'));
 app.use('/admin', require('./routes/admin'));
 app.use('/discussions', require('./routes/discussions'));
 
-const PORT = 8080;
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "username": "admin",
+    "email": "admin@portal.com",
+    "password": "$2a$10$HX0BfDwZXcxMO8A1ZA6S0.T7OkNN0NJZCKkozo2KWcZlneGZcYgnG",
+    "role": "admin",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-04-09T17:49:20.987Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "3ed761a2-7dee-4883-a2dc-226089789fb0",
+    "username": "testuser",
+    "email": "test@test.com",
+    "password": "$2a$10$NHrdlHecdQ/yPCevIhpMYeX.sML9p2CZQ.bvw1nAdzeRPGPXlrAu2",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-04-09T18:23:40.740Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "b69d481b-e2a4-4a27-8f39-02d195e79456",
+    "username": "Niek",
+    "email": "gggnike04@gmail.com",
+    "password": "$2a$10$qnDMrDx2.sHhiD3XmrSNseQpOfMX2WzxIGKygUb5.r1COrhlACx8.",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-04-10T04:58:06.481Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "d12e74be-e051-4010-b94a-486ff419a708",
+    "username": "azeke",
+    "email": "azeke@gmail.com",
+    "password": "$2a$10$5n2XmgvcuizWITZG63KbsuNGutTcFXdFVBEiBDbs8Ax/xN2x5T55G",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-04-15T05:02:07.875Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "6f9edbf9-d6a0-46a7-acc2-b49dd00ff556",
+    "username": "gamer1337",
+    "email": "mos210606@gmail.com",
+    "password": "$2a$10$ID4TInJwuZR5E9Uu8G9SauCnEiuwmDaZ74ozcOwkLCLsGDDrJHc.K",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-05-23T13:59:26.313Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "3cb05162-d9c2-4017-b129-7ea2bef1feef",
+    "username": "yareke",
+    "email": "yaroslav.moskvin@narxoz.kz",
+    "password": "$2a$10$H1V7auEeZPc2vpiInPXpWuzWzcJF2kZyR51qG0.cB9UNMjgp000qi",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-05-23T14:53:59.887Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "d6a4f530-36bb-4de7-b345-925c033204d9",
+    "username": "BAKE1337",
+    "email": "akzhan.kaban@mail.ru",
+    "password": "$2a$10$pvg9r22mvsCWL4jgShMlZuhB3bxLxJGa11EPZUeRJ0unQ3LPR2Ysy",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "createdAt": "2026-05-23T15:06:32.465Z",
+    "emailVerified": true,
+    "verificationToken": null
+  },
+  {
+    "id": "5a58e0ad-2a4c-485c-819d-97f7be5fd1a7",
+    "username": "newuser999",
+    "email": "newuser999@test.com",
+    "password": "$2a$10$0tBzJ69w6CGunLKGrvgNCu5H.pcZXuM56DOep8t1yjYwkbJAy2nj6",
+    "role": "user",
+    "banned": false,
+    "muted": false,
+    "emailVerified": false,
+    "verificationToken": "88c1d20e-2216-4c63-8e39-2d2450678ba1",
+    "createdAt": "2026-05-23T15:15:20.891Z"
+  }
+]

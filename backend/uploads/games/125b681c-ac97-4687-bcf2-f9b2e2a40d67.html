@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Agar.io Clone</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrollbars */
+            background-color: #f2fbff;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none; /* Let clicks pass through */
+            color: #333;
+            text-shadow: 1px 1px 2px white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ui">
+        <h2>Mass: <span id="scoreDisplay">20</span></h2>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+
+        // Game constants
+        const WORLD_SIZE = 3000;
+        const INITIAL_RADIUS = 20;
+        const FOOD_COUNT = 600;
+
+        // Variables
+        let width, height;
+        let mouse = { x: 0, y: 0 };
+        let foods = [];
+
+        // Player Object
+        let player = {
+            x: WORLD_SIZE / 2,
+            y: WORLD_SIZE / 2,
+            r: INITIAL_RADIUS,
+            color: '#ff4757'
+        };
+
+        // Resize canvas to fit window
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            // Set initial mouse position to center
+            if (mouse.x === 0 && mouse.y === 0) {
+                mouse.x = width / 2;
+                mouse.y = height / 2;
+            }
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Track mouse movement
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        // Generate food
+        function spawnFood() {
+            return {
+                x: Math.random() * WORLD_SIZE,
+                y: Math.random() * WORLD_SIZE,
+                r: 4 + Math.random() * 3, // Random size between 4 and 7
+                color: `hsl(${Math.random() * 360}, 100%, 60%)`
+            };
+        }
+
+        // Initial food population
+        for (let i = 0; i < FOOD_COUNT; i++) {
+            foods.push(spawnFood());
+        }
+
+        function update() {
+            // Calculate distance from center of screen to mouse pointer
+            let dx = mouse.x - width / 2;
+            let dy = mouse.y - height / 2;
+            let dist = Math.hypot(dx, dy);
+
+            // Move player if mouse is far enough away from the center
+            if (dist > 10) {
+                // Speed decreases as player gets bigger
+                let speed = 150 / player.r; 
+                speed = Math.max(1.5, Math.min(speed, 5)); // Clamp speed between 1.5 and 5
+
+                player.x += (dx / dist) * speed;
+                player.y += (dy / dist) * speed;
+            }
+
+            // Keep player inside world boundaries
+            player.x = Math.max(player.r, Math.min(WORLD_SIZE - player.r, player.x));
+            player.y = Math.max(player.r, Math.min(WORLD_SIZE - player.r, player.y));
+
+            // Check collisions with food
+            for (let i = foods.length - 1; i >= 0; i--) {
+                let f = foods[i];
+                let distToFood = Math.hypot(f.x - player.x, f.y - player.y);
+
+                // If player touches food
+                if (distToFood < player.r) {
+                    foods.splice(i, 1); // Remove eaten food
+                    
+                    // Increase size properly based on area (Area = pi * r^2)
+                    let currentArea = Math.PI * player.r * player.r;
+                    let foodArea = Math.PI * f.r * f.r;
+                    player.r = Math.sqrt((currentArea + foodArea) / Math.PI);
+
+                    // Update UI
+                    scoreDisplay.innerText = Math.floor(player.r);
+
+                    // Spawn a new piece of food to replace the eaten one
+                    foods.push(spawnFood());
+                }
+            }
+        }
+
+        function drawGrid(startX, startY, endX, endY) {
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            const gridSize = 50;
+
+            // Snap start points to the nearest grid line
+            let snappedStartX = Math.floor(startX / gridSize) * gridSize;
+            let snappedStartY = Math.floor(startY / gridSize) * gridSize;
+
+            ctx.beginPath();
+            // Vertical lines
+            for (let x = snappedStartX; x <= endX; x += gridSize) {
+                ctx.moveTo(x, startY);
+                ctx.lineTo(x, endY);
+            }
+            // Horizontal lines
+            for (let y = snappedStartY; y <= endY; y += gridSize) {
+                ctx.moveTo(startX, y);
+                ctx.lineTo(endX, y);
+            }
+            ctx.stroke();
+        }
+
+        function draw() {
+            // Clear screen
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.save();
+            // Move the "camera" to keep the player in the center of the screen
+            ctx.translate(width / 2 - player.x, height / 2 - player.y);
+
+            // Calculate visible area for optimization
+            let visStartX = Math.max(0, player.x - width / 2);
+            let visEndX = Math.min(WORLD_SIZE, player.x + width / 2);
+            let visStartY = Math.max(0, player.y - height / 2);
+            let visEndY = Math.min(WORLD_SIZE, player.y + height / 2);
+
+            // Draw background grid
+            drawGrid(visStartX, visStartY, visEndX, visEndY);
+
+            // Draw world boundary limits
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(0, 0, WORLD_SIZE, WORLD_SIZE);
+
+            // Draw foods
+            foods.forEach(f => {
+                // Only draw food if it's currently on screen
+                if (f.x > visStartX - f.r && f.x < visEndX + f.r &&
+                    f.y > visStartY - f.r && f.y < visEndY + f.r) {
+                    ctx.beginPath();
+                    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                    ctx.fillStyle = f.color;
+                    ctx.fill();
+                }
+            });
+
+            // Draw player
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+            ctx.fillStyle = player.color;
+            ctx.fill();
+            
+            // Player outline
+            ctx.lineWidth = player.r * 0.1; // Outline gets thicker as you grow
+            ctx.strokeStyle = '#c0392b';
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Main game loop
+        function loop() {
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        // Start game
+        loop();
+    </script>
+</body>
+</html>

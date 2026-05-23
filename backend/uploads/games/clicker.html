@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cookie Clicker</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a0a0a; color: #f0d080; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; gap: 20px; }
+  h1 { font-size: 2rem; }
+  #score { font-size: 3rem; font-weight: bold; color: #ffd700; }
+  #cookie { font-size: 8rem; cursor: pointer; user-select: none; transition: transform 0.1s; }
+  #cookie:active { transform: scale(0.9); }
+  #cps { font-size: 1rem; color: #aaa; }
+  .shop { display: flex; flex-direction: column; gap: 8px; }
+  .shop-btn { padding: 10px 20px; background: #3a2a00; border: 2px solid #ffd700; border-radius: 8px; color: #ffd700; font-size: 0.9rem; cursor: pointer; min-width: 220px; text-align: left; }
+  .shop-btn:hover { background: #5a4a00; }
+  .shop-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+</style>
+</head>
+<body>
+<h1>🍪 Cookie Clicker</h1>
+<div id="score">0 cookies</div>
+<div id="cookie">🍪</div>
+<div id="cps">0 cookies/sec</div>
+<div class="shop">
+  <button class="shop-btn" id="buy-cursor">🖱️ Cursor — 10 cookies (+1/sec)</button>
+  <button class="shop-btn" id="buy-grandma">👵 Grandma — 100 cookies (+10/sec)</button>
+  <button class="shop-btn" id="buy-factory">🏭 Factory — 500 cookies (+50/sec)</button>
+</div>
+<script>
+  let cookies = 0;
+  let cps = 0;
+  const costs = { cursor: 10, grandma: 100, factory: 500 };
+  const gains = { cursor: 1, grandma: 10, factory: 50 };
+
+  function updateUI() {
+    document.getElementById('score').textContent = Math.floor(cookies) + ' cookies';
+    document.getElementById('cps').textContent = cps + ' cookies/sec';
+    document.getElementById('buy-cursor').disabled = cookies < costs.cursor;
+    document.getElementById('buy-grandma').disabled = cookies < costs.grandma;
+    document.getElementById('buy-factory').disabled = cookies < costs.factory;
+  }
+
+  document.getElementById('cookie').addEventListener('click', () => {
+    cookies++;
+    updateUI();
+  });
+
+  function buy(type) {
+    if (cookies >= costs[type]) {
+      cookies -= costs[type];
+      cps += gains[type];
+      costs[type] = Math.ceil(costs[type] * 1.5);
+      document.getElementById(`buy-${type}`).textContent =
+        document.getElementById(`buy-${type}`).textContent.split('—')[0] + `— ${costs[type]} cookies (+${gains[type]}/sec)`;
+      updateUI();
+    }
+  }
+
+  document.getElementById('buy-cursor').addEventListener('click', () => buy('cursor'));
+  document.getElementById('buy-grandma').addEventListener('click', () => buy('grandma'));
+  document.getElementById('buy-factory').addEventListener('click', () => buy('factory'));
+
+  setInterval(() => { cookies += cps / 20; updateUI(); }, 50);
+</script>
+</body>
+</html>

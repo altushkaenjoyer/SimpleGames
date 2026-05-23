@@ -1,0 +1,321 @@
+<style>
+body{
+	padding: 0;
+	margin: 0;
+}
+
+h1{
+	font-size: 1.375vmax;
+}
+
+table{
+	padding: 0;
+	margin: 0;
+}
+
+tr{
+	padding: 0;
+	margin: 0;
+}
+
+td{
+	padding: 0;
+	margin: 0;
+	width: 3vmax;
+	height: 3vmax;
+	background-color: #ffffff;
+}
+
+.gray{
+	background-color: #aaaaaa;
+}
+
+p{
+	padding: 0;
+	margin: 0;
+	width: 3vmax;
+	height: 3vmax;
+	font-size: 3vmax;
+	text-align: center;
+	align-items: center;
+}
+</style>
+<body>
+<table cellspacing="0" cellpadding="0" style='width: 100%;'>
+<tr>
+<td style='width: 50%;'>
+<table cellspacing="0" cellpadding="0">
+	<tr>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p>4</p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+		<td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(1,1)'><p id='1-1' style='display: none;'></p></td>
+		<td onclick='otkr(1,2)'><p id='1-2' style='display: none;'></p></td>
+		<td onclick='otkr(1,3)'><p id='1-3' style='display: none;'></p></td>
+		<td onclick='otkr(1,4)'><p id='1-4'>10</p></td>
+		<td class='gray' onclick='otkr(1,5)'><p id='1-5' style='display: none;'>Ұ</p></td>
+		<td class='gray' onclick='otkr(1,6)'><p id='1-6' style='display: none;'>Ж</p></td>
+		<td class='gray' onclick='otkr(1,7)'><p id='1-7' style='display: none;'>Ы</p></td>
+		<td class='gray' onclick='otkr(1,8)'><p id='1-8' style='display: none;'>М</p></td>
+		<td class='gray' onclick='otkr(1,9)'><p id='1-9' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(1,10)'><p id='1-10' style='display: none;'>Ы</p></td>
+		<td class='gray' onclick='otkr(1,11)'><p id='1-11' style='display: none;'>Қ</p></td>
+		<td onclick='otkr(1,12)'><p id='1-12' style='display: none;'></p></td>
+		<td onclick='otkr(1,13)'><p id='1-13' style='display: none;'></p></td>
+		<td onclick='otkr(1,13)'><p id='1-13' style='display: none;'></p></td>
+		<td onclick='otkr(1,13)'><p id='1-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(2,1)'><p id='2-1' style='display: none;'></p></td>
+		<td onclick='otkr(2,2)'><p id='2-2'>7</p></td>
+		<td class='gray' onclick='otkr(2,3)'><p id='2-3' style='display: none;'>М</p></td>
+		<td class='gray' onclick='otkr(2,4)'><p id='2-4' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(2,5)'><p id='2-5' style='display: none;'>М</p></td>
+		<td class='gray' onclick='otkr(2,6)'><p id='2-6' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(2,7)'><p id='2-7' style='display: none;'>Н</p></td>
+		<td class='gray' onclick='otkr(2,8)'><p id='2-8' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(2,9)'><p id='2-9' style='display: none;'>Ы</p></td>
+		<td class='gray' onclick='otkr(2,10)'><p id='2-10' style='display: none;'>Қ</p></td>
+		<td onclick='otkr(2,11)'><p id='2-11' style='display: none;'></p></td>
+		<td onclick='otkr(2,12)'><p id='2-12' style='display: none;'></p></td>
+		<td onclick='otkr(2,13)'><p id='2-13'>5</p></td>
+		<td onclick='otkr(2,14)'><p id='2-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p>3</p></td>
+		<td class='gray' onclick='otkr(3,1)'><p id='3-1' style='display: none;'>Б</p></td>
+		<td class='gray' onclick='otkr(3,2)'><p id='3-2' style='display: none;'>О</p></td>
+		<td class='gray' onclick='otkr(3,3)'><p id='3-3' style='display: none;'>С</p></td>
+		<td class='gray' onclick='otkr(3,4)'><p id='3-4' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(3,5)'><p id='3-5' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(3,6)'><p id='3-6' style='display: none;'>У</p></td>
+		<td onclick='otkr(3,7)'><p id='3-7' style='display: none;'></p></td>
+		<td onclick='otkr(3,8)'><p id='3-8' style='display: none;'></p></td>
+		<td onclick='otkr(3,9)'><p id='3-9' style='display: none;'></p></td>
+		<td onclick='otkr(3,10)'><p id='3-10' style='display: none;'></p></td>
+		<td onclick='otkr(3,11)'><p id='3-11' style='display: none;'></p></td>
+		<td onclick='otkr(3,12)'><p id='3-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(3,13)'><p id='3-13' style='display: none;'>М</p></td>
+		<td onclick='otkr(3,14)'><p id='3-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(4,1)'><p id='4-1'>8</p></td>
+		<td class='gray' onclick='otkr(4,2)'><p id='4-2' style='display: none;'>С</p></td>
+		<td class='gray' onclick='otkr(4,3)'><p id='4-3' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(4,4)'><p id='4-4' style='display: none;'>Қ</p></td>
+		<td class='gray' onclick='otkr(4,5)'><p id='4-5' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(4,6)'><p id='4-6' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(4,7)'><p id='4-7' style='display: none;'>Н</p></td>
+		<td class='gray' onclick='otkr(4,8)'><p id='4-8' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(4,9)'><p id='4-9' style='display: none;'>Ы</p></td>
+		<td class='gray' onclick='otkr(4,10)'><p id='4-10' style='display: none;'>Р</p></td>
+		<td class='gray' onclick='otkr(4,11)'><p id='4-11' style='display: none;'>У</p></td>
+		<td onclick='otkr(4,12)'><p id='4-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(4,13)'><p id='4-13' style='display: none;'>А</p></td>
+		<td onclick='otkr(4,14)'><p id='4-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p>1</p></td>
+		<td class='gray' onclick='otkr(5,1)'><p id='5-1' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(5,2)'><p id='5-2' style='display: none;'>Ә</p></td>
+		<td class='gray' onclick='otkr(5,3)'><p id='5-3' style='display: none;'>Р</p></td>
+		<td class='gray' onclick='otkr(5,4)'><p id='5-4' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(5,5)'><p id='5-5' style='display: none;'>І</p></td>
+		<td class='gray' onclick='otkr(5,6)'><p id='5-6' style='display: none;'>П</p></td>
+		<td onclick='otkr(5,7)'><p id='5-7' style='display: none;'></p></td>
+		<td onclick='otkr(5,8)'><p id='5-8' style='display: none;'></p></td>
+		<td onclick='otkr(5,9)'><p id='5-9' style='display: none;'></p></td>
+		<td onclick='otkr(5,10)'><p id='5-10' style='display: none;'></p></td>
+		<td onclick='otkr(5,11)'><p id='5-11' style='display: none;'></p></td>
+		<td onclick='otkr(5,12)'><p id='5-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(5,13)'><p id='5-13' style='display: none;'>Т</p></td>
+		<td onclick='otkr(5,14)'><p id='5-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(6,1)'><p id='6-1' style='display: none;'></p></td>
+		<td onclick='otkr(6,2)'><p id='6-2' style='display: none;'></p></td>
+		<td onclick='otkr(6,3)'><p id='6-3' style='display: none;'></p></td>
+		<td onclick='otkr(6,4)'><p id='6-4' style='display: none;'></p></td>
+		<td onclick='otkr(6,5)'><p id='6-5'>9</p></td>
+		<td class='gray' onclick='otkr(6,6)'><p id='6-6' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(6,7)'><p id='6-7' style='display: none;'>О</p></td>
+		<td class='gray' onclick='otkr(6,8)'><p id='6-8' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(6,9)'><p id='6-9' style='display: none;'>Е</p></td>
+		<td class='gray' onclick='otkr(6,10)'><p id='6-10' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(6,11)'><p id='6-11' style='display: none;'>С</p></td>
+		<td onclick='otkr(6,12)'><p id='6-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(6,13)'><p id='6-13' style='display: none;'>Е</p></td>
+		<td onclick='otkr(6,14)'><p id='6-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(7,1)'><p id='7-1' style='display: none;'></p></td>
+		<td onclick='otkr(7,2)'><p id='7-2' style='display: none;'></p></td>
+		<td onclick='otkr(7,3)'><p id='7-3' style='display: none;'></p></td>
+		<td onclick='otkr(7,4)'><p id='7-4' style='display: none;'></p></td>
+		<td onclick='otkr(7,5)'><p id='7-5' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(7,6)'><p id='7-6' style='display: none;'>Е</p></td>
+		<td onclick='otkr(7,7)'><p id='7-7' style='display: none;'></p></td>
+		<td onclick='otkr(7,8)'><p id='7-8' style='display: none;'></p></td>
+		<td onclick='otkr(7,9)'><p id='7-9' style='display: none;'></p></td>
+		<td onclick='otkr(7,10)'><p id='7-10' style='display: none;'></p></td>
+		<td onclick='otkr(7,11)'><p id='7-11' style='display: none;'></p></td>
+		<td onclick='otkr(7,12)'><p id='7-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(7,13)'><p id='7-13' style='display: none;'>Р</p></td>
+		<td onclick='otkr(7,14)'><p id='7-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(8,1)'><p id='8-1'>6</p></td>
+		<td class='gray' onclick='otkr(8,2)'><p id='8-2' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(8,3)'><p id='8-3' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(8,4)'><p id='8-4' style='display: none;'>С</p></td>
+		<td class='gray' onclick='otkr(8,5)'><p id='8-5' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(8,6)'><p id='8-6' style='display: none;'>Р</p></td>
+		<td class='gray' onclick='otkr(8,7)'><p id='8-7' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(8,8)'><p id='8-8' style='display: none;'>М</p></td>
+		<td class='gray' onclick='otkr(8,9)'><p id='8-9' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(8,10)'><p id='8-10' style='display: none;'>Н</p></td>
+		<td class='gray' onclick='otkr(8,11)'><p id='8-11' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(8,12)'><p id='8-12' style='display: none;'>Ц</p></td>
+		<td class='gray' onclick='otkr(8,13)'><p id='8-13' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(8,14)'><p id='8-14' style='display: none;'>Я</p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(9,1)'><p id='9-1' style='display: none;'></p></td>
+		<td onclick='otkr(9,2)'><p id='9-2' style='display: none;'></p></td>
+		<td onclick='otkr(9,3)'><p id='9-3' style='display: none;'></p></td>
+		<td onclick='otkr(9,4)'><p id='9-4' style='display: none;'></p></td>
+		<td onclick='otkr(9,5)'><p id='9-5' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(9,6)'><p id='9-6' style='display: none;'>Ш</p></td>
+		<td onclick='otkr(9,7)'><p id='9-7' style='display: none;'></p></td>
+		<td onclick='otkr(9,8)'><p id='9-8' style='display: none;'></p></td>
+		<td onclick='otkr(9,9)'><p id='9-9' style='display: none;'></p></td>
+		<td onclick='otkr(9,10)'><p id='9-10' style='display: none;'></p></td>
+		<td onclick='otkr(9,11)'><p id='9-11' style='display: none;'></p></td>
+		<td onclick='otkr(9,12)'><p id='9-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(9,13)'><p id='9-13' style='display: none;'>А</p></td>
+		<td onclick='otkr(9,14)'><p id='9-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(10,1)'><p id='10-1' style='display: none;'></p></td>
+		<td onclick='otkr(10,2)'><p id='10-2' style='display: none;'></p></td>
+		<td onclick='otkr(10,3)'><p id='10-3' style='display: none;'></p></td>
+		<td onclick='otkr(10,4)'><p id='10-4' style='display: none;'></p></td>
+		<td onclick='otkr(10,5)'><p id='10-5' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(10,6)'><p id='10-6' style='display: none;'>І</p></td>
+		<td onclick='otkr(10,7)'><p id='10-7' style='display: none;'></p></td>
+		<td onclick='otkr(10,8)'><p id='10-8' style='display: none;'></p></td>
+		<td onclick='otkr(10,9)'><p id='10-9' style='display: none;'></p></td>
+		<td onclick='otkr(10,10)'><p id='10-10' style='display: none;'></p></td>
+		<td onclick='otkr(10,11)'><p id='10-11' style='display: none;'></p></td>
+		<td onclick='otkr(10,12)'><p id='10-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(10,13)'><p id='10-13' style='display: none;'>Л</p></td>
+		<td onclick='otkr(10,14)'><p id='10-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(11,1)'><p id='11-1' style='display: none;'></p></td>
+		<td onclick='otkr(11,2)'><p id='11-2' style='display: none;'></p></td>
+		<td onclick='otkr(11,3)'><p id='11-3' style='display: none;'></p></td>
+		<td onclick='otkr(11,4)'><p id='11-4' style='display: none;'></p></td>
+		<td onclick='otkr(11,5)'><p id='11-5' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(11,6)'><p id='11-6' style='display: none;'>Л</p></td>
+		<td onclick='otkr(11,7)'><p id='11-7' style='display: none;'></p></td>
+		<td onclick='otkr(11,8)'><p id='11-8' style='display: none;'></p></td>
+		<td onclick='otkr(11,9)'><p id='11-9' style='display: none;'></p></td>
+		<td onclick='otkr(11,10)'><p id='11-10' style='display: none;'></p></td>
+		<td onclick='otkr(11,11)'><p id='11-11' style='display: none;'></p></td>
+		<td onclick='otkr(11,12)'><p id='11-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(11,13)'><p id='11-13' style='display: none;'>Д</p></td>
+		<td onclick='otkr(11,14)'><p id='11-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p>2</p></td>
+		<td class='gray' onclick='otkr(12,1)'><p id='12-1' style='display: none;'>Е</p></td>
+		<td class='gray' onclick='otkr(12,2)'><p id='12-2' style='display: none;'>Р</p></td>
+		<td class='gray' onclick='otkr(12,3)'><p id='12-3' style='display: none;'>І</p></td>
+		<td class='gray' onclick='otkr(12,4)'><p id='12-4' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(12,5)'><p id='12-5' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(12,6)'><p id='12-6' style='display: none;'>І</p></td>
+		<td class='gray' onclick='otkr(12,7)'><p id='12-7' style='display: none;'>Л</p></td>
+		<td class='gray' onclick='otkr(12,8)'><p id='12-8' style='display: none;'>І</p></td>
+		<td class='gray' onclick='otkr(12,9)'><p id='12-9' style='display: none;'>К</p></td>
+		<td onclick='otkr(12,10)'><p id='12-10' style='display: none;'></p></td>
+		<td onclick='otkr(12,11)'><p id='12-11' style='display: none;'></p></td>
+		<td onclick='otkr(12,12)'><p id='12-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(12,13)'><p id='12-13' style='display: none;'>Ы</p></td>
+		<td onclick='otkr(12,14)'><p id='12-14' style='display: none;'></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td onclick='otkr(13,1)'><p id='13-1' style='display: none;'></p></td>
+		<td onclick='otkr(13,2)'><p id='13-2' style='display: none;'></p></td>
+		<td onclick='otkr(13,3)'><p id='13-3' style='display: none;'></p></td>
+		<td onclick='otkr(13,4)'><p id='13-4' style='display: none;'></p></td>
+		<td onclick='otkr(13,5)'><p id='13-5' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(13,6)'><p id='13-6' style='display: none;'>К</p></td>
+		<td onclick='otkr(13,7)'><p id='13-7' style='display: none;'></p></td>
+		<td onclick='otkr(13,8)'><p id='13-8' style='display: none;'></p></td>
+		<td onclick='otkr(13,9)'><p id='13-9' style='display: none;'></p></td>
+		<td onclick='otkr(13,10)'><p id='13-10' style='display: none;'></p></td>
+		<td onclick='otkr(13,11)'><p id='13-11' style='display: none;'></p></td>
+		<td onclick='otkr(13,12)'><p id='13-12' style='display: none;'></p></td>
+		<td class='gray' onclick='otkr(13,13)'><p id='13-13' style='display: none;'>Қ</p></td>
+		<td onclick='otkr(13,14)'><p id='13-14' style='display: none;'></p></td>
+	</tr>
+</table>
+
+<td style='width: 50%;'>
+<h1 onclick='otkrm(5,1,5,6);'>1. Ұйым қызметкерлерінің олардың құқықтары мен міндеттеріне негізделген жұмыс орнындағы мінез-құлықтың белгілі бір ережелерін сақтауы.</h1>
+<h1 onclick='otkrm(12,1,12,9);'>2. Тараптардың өзіне міндеттемелер қабылдауы</h1>
+<h1 onclick='otkrm(3,1,3,6);'>3. Тиісті негіздер бойынша тәртіптік жаза түрі</h1>
+<h1 onclick='otkrm(1,6,13,6);'>4. Қызметкердің құқықтарынан басқа нелері бар?</h1>
+<h1 onclick='otkrm(2,13,13,13);'>5. Жауапкершілік түрі</h1>
+<h1 onclick='otkrm(8,2,8,14);'>6. Адамның және азаматтың құқықтары мен бостандықтарын шектеу, сондай-ақ адамдарға немесе әлеуметтік топтарға қандай да бір белгі бойынша әртүрлі қарау.</h1>
+<h1 onclick='otkrm(2,3,2,10);'>7. Бұл белгілі бір кәсіп аясындағы белгілі бір қызмет түріне қажетті арнайы оқу және жұмыс тәжірибесі арқылы алынған білім мен дағдылар кешені.</h1>
+<h1 onclick='otkrm(4,2,4,11);'>8. Қызметкер нені қамтамасыз етуі керек?</h1>
+<h1 onclick='otkrm(6,6,6,11);'>9. Жұмыс беруші мен қызметкер арасындағы еңбек қатынастарын реттейтін заңдар жиынтығы</h1>
+<h1 onclick='otkrm(1,5,1,11);'>10. Тараптардың құқықтары мен міндеттері туралы еңбек ұжымы мен жұмыс беруші арасындағы келісім</h1>
+</td>
+</td>
+</tr>
+</table>
+
+<h1 style='position: absolute; bottom: 0; right: 1vmax;'>Жауабын ашу үшін сурақты<br>немесе ұяшықты басыңыз</h1>
+
+</body>
+
+<script>
+function otkr(a,b){
+	console.log('a')
+	document.getElementById(a + '-' + b).style.display = 'block';
+}
+function otkrm(a,b,c,d){
+	console.log('aa')
+	for(i=a;i<=c;i++){
+		for(j=b;j<=d;j++){
+			document.getElementById(i + '-' + j).style.display = 'block';
+		}
+	}
+}
+</script>

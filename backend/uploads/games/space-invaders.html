@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Space Invaders</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: black;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: white;
+    }
+
+    canvas {
+        display: block;
+        margin: auto;
+        background: radial-gradient(circle at center, #111 0%, #000 100%);
+        image-rendering: pixelated;
+        border: 3px solid #00ff88;
+        box-shadow:
+            0 0 20px #00ff88,
+            inset 0 0 20px #003322;
+    }
+
+    .ui {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 40px;
+        font-size: 24px;
+        text-shadow: 0 0 10px #00ff88;
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+
+<div class="ui">
+    <div>Score: <span id="score">0</span></div>
+    <div>Lives: <span id="lives">3</span></div>
+</div>
+
+<div class="controls">
+    ← → двигаться | SPACE стрелять
+</div>
+
+<canvas id="game" width="900" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const scoreEl = document.getElementById("score");
+const livesEl = document.getElementById("lives");
+
+let score = 0;
+let lives = 3;
+let gameOver = false;
+
+const keys = {};
+
+document.addEventListener("keydown", e => {
+    keys[e.code] = true;
+
+    if (e.code === "Space") {
+        shoot();
+    }
+
+    if (gameOver && e.code === "Enter") {
+        location.reload();
+    }
+});
+
+document.addEventListener("keyup", e => {
+    keys[e.code] = false;
+});
+
+const player = {
+    x: canvas.width / 2 - 25,
+    y: canvas.height - 70,
+    width: 50,
+    height: 25,
+    speed: 6
+};
+
+const bullets = [];
+const enemyBullets = [];
+const enemies = [];
+
+const enemyRows = 5;
+const enemyCols = 10;
+
+for (let row = 0; row < enemyRows; row++) {
+    for (let col = 0; col < enemyCols; col++) {
+        enemies.push({
+            x: 80 + col * 70,
+            y: 60 + row * 55,
+            width: 40,
+            height: 30,
+            alive: true
+        });
+    }
+}
+
+let enemyDirection = 1;
+let enemySpeed = 1;
+
+function shoot() {
+    bullets.push({
+        x: player.x + player.width / 2 - 2,
+        y: player.y,
+        width: 4,
+        height: 15,
+        speed: 8
+    });
+}
+
+function drawPlayer() {
+    ctx.fillStyle = "#00ff88";
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.fillRect(player.x + 15, player.y - 12, 20, 12);
+}
+
+function drawEnemies() {
+    enemies.forEach(enemy => {
+        if (!enemy.alive) return;
+        ctx.fillStyle = "#ff3366";
+        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        ctx.fillRect(enemy.x + 5, enemy.y - 8, 8, 8);
+        ctx.fillRect(enemy.x + 27, enemy.y - 8, 8, 8);
+    });
+}
+
+function drawBullets() {
+    ctx.fillStyle = "#ffff66";
+    bullets.forEach(b => {
+        ctx.fillRect(b.x, b.y, b.width, b.height);
+    });
+
+    ctx.fillStyle = "#66ccff";
+    enemyBullets.forEach(b => {
+        ctx.fillRect(b.x, b.y, b.width, b.height);
+    });
+}
+
+function updatePlayer() {
+    if (keys["ArrowLeft"]) player.x -= player.speed;
+    if (keys["ArrowRight"]) player.x += player.speed;
+    player.x = Math.max(0, Math.min(canvas.width - player.width, player.x));
+}
+
+function updateBullets() {
+    bullets.forEach((b, i) => {
+        b.y -= b.speed;
+        if (b.y < 0) bullets.splice(i, 1);
+    });
+
+    enemyBullets.forEach((b, i) => {
+        b.y += b.speed;
+
+        if (
+            b.x < player.x + player.width &&
+            b.x + b.width > player.x &&
+            b.y < player.y + player.height &&
+            b.y + b.height > player.y
+        ) {
+            enemyBullets.splice(i, 1);
+            lives--;
+            livesEl.textContent = lives;
+            if (lives <= 0) gameOver = true;
+        }
+
+        if (b.y > canvas.height) enemyBullets.splice(i, 1);
+    });
+}
+
+function updateEnemies() {
+    let hitEdge = false;
+
+    enemies.forEach(enemy => {
+        if (!enemy.alive) return;
+        enemy.x += enemySpeed * enemyDirection;
+
+        if (enemy.x <= 0 || enemy.x + enemy.width >= canvas.width) hitEdge = true;
+
+        if (Math.random() < 0.0015) {
+            enemyBullets.push({
+                x: enemy.x + enemy.width / 2,
+                y: enemy.y + enemy.height,
+                width: 4,
+                height: 12,
+                speed: 4
+            });
+        }
+
+        if (enemy.y + enemy.height >= player.y) gameOver = true;
+    });
+
+    if (hitEdge) {
+        enemyDirection *= -1;
+        enemies.forEach(enemy => { enemy.y += 20; });
+    }
+}
+
+function collisionDetection() {
+    bullets.forEach((bullet, bi) => {
+        enemies.forEach(enemy => {
+            if (
+                enemy.alive &&
+                bullet.x < enemy.x + enemy.width &&
+                bullet.x + bullet.width > enemy.x &&
+                bullet.y < enemy.y + enemy.height &&
+                bullet.y + bullet.height > enemy.y
+            ) {
+                enemy.alive = false;
+                bullets.splice(bi, 1);
+                score += 100;
+                scoreEl.textContent = score;
+            }
+        });
+    });
+
+    if (enemies.every(e => !e.alive)) gameOver = true;
+}
+
+function drawStars() {
+    for (let i = 0; i < 60; i++) {
+        ctx.fillStyle = "white";
+        const x = (i * 137) % canvas.width;
+        const y = (i * 71 + performance.now() * 0.02) % canvas.height;
+        ctx.fillRect(x, y, 2, 2);
+    }
+}
+
+function drawGameOver() {
+    ctx.fillStyle = "rgba(0,0,0,0.7)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ff88";
+    ctx.font = "64px Arial";
+    ctx.textAlign = "center";
+
+    if (lives <= 0) {
+        ctx.fillText("GAME OVER", canvas.width / 2, 250);
+    } else {
+        ctx.fillText("YOU WIN", canvas.width / 2, 250);
+    }
+
+    ctx.font = "28px Arial";
+    ctx.fillText("Нажми ENTER чтобы перезапустить", canvas.width / 2, 330);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawStars();
+
+    if (!gameOver) {
+        updatePlayer();
+        updateBullets();
+        updateEnemies();
+        collisionDetection();
+        drawPlayer();
+        drawEnemies();
+        drawBullets();
+        requestAnimationFrame(gameLoop);
+    } else {
+        drawPlayer();
+        drawEnemies();
+        drawBullets();
+        drawGameOver();
+    }
+}
+
+gameLoop();
+</script>
+
+</body>
+</html>

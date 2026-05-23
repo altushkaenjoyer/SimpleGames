@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Mini-Craft</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            user-select: none; /* Prevents text selection while dragging */
+        }
+
+        h1 {
+            margin-top: 0;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        #toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #555;
+        }
+
+        .tool {
+            width: 40px;
+            height: 40px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: transform 0.1s;
+        }
+
+        .tool:hover {
+            transform: scale(1.1);
+        }
+
+        .tool.active {
+            border: 2px solid white;
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Block Colors */
+        .sky   { background-color: #87CEEB; }
+        .grass { background-color: #4CAF50; border-top: 4px solid #81C784; }
+        .dirt  { background-color: #795548; }
+        .stone { background-color: #9E9E9E; }
+        .wood  { background-color: #5D4037; }
+        .leaves{ background-color: #2E7D32; }
+
+        #world-container {
+            border: 4px solid #333;
+            background-color: #87CEEB; /* Sky background */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        #game-grid {
+            display: grid;
+            /* 30 columns, 20 rows */
+            grid-template-columns: repeat(30, 25px);
+            grid-template-rows: repeat(20, 25px);
+        }
+
+        .cell {
+            width: 25px;
+            height: 25px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* faint grid lines */
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button.action-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: inherit;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #c0392b;
+        }
+
+        button.action-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⛏️ 2D Mini-Craft</h1>
+
+    <div id="toolbar">
+        <div class="tool grass active" data-type="grass" title="Grass"></div>
+        <div class="tool dirt" data-type="dirt" title="Dirt"></div>
+        <div class="tool stone" data-type="stone" title="Stone"></div>
+        <div class="tool wood" data-type="wood" title="Wood"></div>
+        <div class="tool leaves" data-type="leaves" title="Leaves"></div>
+        <div class="tool sky" data-type="sky" title="Pickaxe / Eraser"></div>
+    </div>
+
+    <div id="world-container">
+        <div id="game-grid"></div>
+    </div>
+
+    <div class="controls">
+        <button class="action-btn" onclick="generateWorld()">Reset World</button>
+    </div>
+
+    <script>
+        const grid = document.getElementById('game-grid');
+        const tools = document.querySelectorAll('.tool');
+        let currentBlock = 'grass';
+        let isDrawing = false;
+
+        const cols = 30;
+        const rows = 20;
+
+        // Handle tool selection
+        tools.forEach(tool => {
+            tool.addEventListener('click', () => {
+                // Remove active class from all
+                tools.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked
+                tool.classList.add('active');
+                // Set current block type
+                currentBlock = tool.getAttribute('data-type');
+            });
+        });
+
+        // Initialize and generate the world
+        function generateWorld() {
+            grid.innerHTML = ''; // Clear existing blocks
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const cell = document.createElement('div');
+                    
+                    // Basic Terrain Generation
+                    let blockType = 'sky';
+                    if (r > 14) blockType = 'stone';       // Deep underground
+                    else if (r > 11) blockType = 'dirt';   // Underground
+                    else if (r === 11) blockType = 'grass';// Surface
+
+                    cell.className = `cell ${blockType}`;
+                    cell.setAttribute('data-row', r);
+                    cell.setAttribute('data-col', c);
+
+                    // Add drawing event listeners
+                    cell.addEventListener('mousedown', (e) => {
+                        isDrawing = true;
+                        placeBlock(e.target);
+                    });
+                    
+                    cell.addEventListener('mouseenter', (e) => {
+                        if (isDrawing) {
+                            placeBlock(e.target);
+                        }
+                    });
+
+                    grid.appendChild(cell);
+                }
+            }
+        }
+
+        // Place or remove block
+        function placeBlock(cell) {
+            // Reset the class to cell and add the new block type
+            cell.className = `cell ${currentBlock}`;
+        }
+
+        // Handle mouse up anywhere on the page to stop drawing
+        document.addEventListener('mouseup', () => {
+            isDrawing = false;
+        });
+
+        // Prevent dragging visual glitch on desktop
+        grid.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+        // Generate the world on first load
+        generateWorld();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "f0cc03e7-c075-4bb3-aa8a-a1a689dc91ee",
+    "name": "Tetris",
+    "description": "Классика всех игр",
+    "categories": [
+      "puzzle",
+      "demo"
+    ],
+    "icon": "/uploads/icons/279890c4-8e60-4df2-8542-473a88e94704.png",
+    "htmlFile": "/uploads/games/100d2a74-630d-4347-aa16-839f04d3ef15.html",
+    "authorId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "likes": [
+      "90967b2b-aef0-4341-84cf-39a7faf4dc7a"
+    ],
+    "createdAt": "2026-04-09T22:41:42.774Z",
+    "updatedAt": "2026-04-09T22:59:12.521Z"
+  },
+  {
+    "id": "b6474a9e-d772-4680-b281-5b8631e4f318",
+    "name": "Mini-craft",
+    "description": "Простой клон игры Minecraft",
+    "categories": [
+      "sandbox",
+      "demo"
+    ],
+    "icon": "/uploads/icons/0eea1104-ded5-4956-8912-8729fe4ab2d7.jpg",
+    "htmlFile": "/uploads/games/30968e41-89c1-4ff4-b1cf-e2bcb21b9e93.html",
+    "authorId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "likes": [],
+    "createdAt": "2026-04-09T22:53:59.669Z",
+    "updatedAt": "2026-04-09T22:59:03.805Z"
+  },
+  {
+    "id": "3aadc0f3-33b9-41e3-ad4f-1afecb9f0e3f",
+    "name": "Agario",
+    "description": "Клон Agario",
+    "categories": [
+      "action",
+      "demo"
+    ],
+    "icon": null,
+    "htmlFile": "/uploads/games/125b681c-ac97-4687-bcf2-f9b2e2a40d67.html",
+    "authorId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "likes": [],
+    "createdAt": "2026-04-09T22:58:54.462Z",
+    "updatedAt": "2026-04-09T22:58:54.462Z"
+  },
+  {
+    "id": "75e68cf4-a8cd-4894-af51-a049a16bf2ba",
+    "name": "Crossword2",
+    "description": "asd asd asdasd  asdasd",
+    "categories": [
+      "RPG"
+    ],
+    "icon": "/uploads/icons/366a385c-ea28-4db5-b67e-9b7d2ba2a4cc.png",
+    "htmlFile": "/uploads/games/36420b02-8559-4832-bd87-61b276f1e9a3.html",
+    "authorId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "likes": [],
+    "createdAt": "2026-04-15T05:00:09.003Z",
+    "updatedAt": "2026-04-15T05:00:41.184Z"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Space Invaders",
+    "description": "Классический аркадный шутер — уничтожай волны пришельцев, пока они не добрались до тебя. 50 врагов, 3 жизни, случайный огонь в ответ. Сколько очков наберёшь?",
+    "categories": [
+      "arcade",
+      "action",
+      "shooter"
+    ],
+    "icon": null,
+    "htmlFile": "/uploads/games/space-invaders.html",
+    "authorId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "likes": [],
+    "createdAt": "2026-05-23T12:00:00.000Z",
+    "updatedAt": "2026-05-23T12:00:00.000Z"
+  },
+  {
+    "id": "f349c649-79c0-490f-a9ce-ef17b3434a3b",
+    "name": "Pixel Defense",
+    "description": "Защищай свои владения от вторженцев!",
+    "categories": [
+      "Tower Defense",
+      "Strategy"
+    ],
+    "icon": null,
+    "htmlFile": "/uploads/games/b032ce7e-4e41-4271-bdda-5c37f39dc0b0/src/index.html",
+    "authorId": "6f9edbf9-d6a0-46a7-acc2-b49dd00ff556",
+    "likes": [
+      "6f9edbf9-d6a0-46a7-acc2-b49dd00ff556"
+    ],
+    "createdAt": "2026-05-23T14:01:22.789Z",
+    "updatedAt": "2026-05-23T14:01:22.789Z"
+  },
+  {
+    "id": "f123caa3-b9a0-4ac9-8b1c-da377953ae57",
+    "name": "HexGl",
+    "description": "Футуристичная гоночная игра, хайп!",
+    "categories": [
+      "Racing",
+      "Action"
+    ],
+    "icon": "/uploads/icons/17106a3c-55c7-4e0f-b4ba-2cf901499dfc.png",
+    "htmlFile": "/uploads/games/9c9f6a9e-c493-46fb-ba58-8108845ab7f2/HexGL-master/index.html",
+    "authorId": "3cb05162-d9c2-4017-b129-7ea2bef1feef",
+    "likes": [
+      "3cb05162-d9c2-4017-b129-7ea2bef1feef"
+    ],
+    "createdAt": "2026-05-23T14:57:17.042Z",
+    "updatedAt": "2026-05-23T14:57:17.042Z"
+  }
+]

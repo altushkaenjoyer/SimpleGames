@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1c8fd91a-4f74-4018-81d4-0228e251558b",
+    "gameId": "b6474a9e-d772-4680-b281-5b8631e4f318",
+    "userId": "90967b2b-aef0-4341-84cf-39a7faf4dc7a",
+    "text": "Ну и фигня",
+    "createdAt": "2026-04-10T04:41:55.643Z"
+  },
+  {
+    "id": "009dbe34-f7f8-49dc-83e9-faf682abe31a",
+    "gameId": "f0cc03e7-c075-4bb3-aa8a-a1a689dc91ee",
+    "userId": "b69d481b-e2a4-4a27-8f39-02d195e79456",
+    "text": "Test",
+    "createdAt": "2026-04-10T04:58:48.276Z"
+  },
+  {
+    "id": "dfae59d6-e6f9-413a-ad85-9f44d8c79a95",
+    "gameId": "f0cc03e7-c075-4bb3-aa8a-a1a689dc91ee",
+    "userId": "d12e74be-e051-4010-b94a-486ff419a708",
+    "text": "wow",
+    "createdAt": "2026-04-15T05:02:33.074Z"
+  },
+  {
+    "id": "75bba0af-1233-4829-bd7c-d292feda9d4f",
+    "gameId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "userId": "6f9edbf9-d6a0-46a7-acc2-b49dd00ff556",
+    "text": "а че так сложно емае\n",
+    "createdAt": "2026-05-23T14:08:58.769Z"
+  }
+]

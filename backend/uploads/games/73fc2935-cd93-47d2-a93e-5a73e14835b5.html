@@ -1,0 +1,184 @@
+<style>
+body{
+	padding: 0;
+	margin: 2vmax;
+    font-family: sans-serif;
+}
+
+h1{
+	font-size: 1.75vmax;
+    cursor: pointer;
+}
+
+table{
+	padding: 0;
+	margin: 0;
+}
+
+tr{
+	padding: 0;
+	margin: 0;
+}
+
+td{
+	padding: 0;
+	margin: 0;
+	width: 4vmax;
+	height: 4vmax;
+	background-color: #ffffff;
+}
+
+.gray{
+	background-color: #aaaaaa;
+    cursor: pointer;
+}
+
+p{
+	padding: 0;
+	margin: 0;
+	width: 3vmax;
+	height: 3vmax;
+	font-size: 3vmax;
+	text-align: center;
+	align-items: center;
+}
+</style>
+<body>
+<table cellspacing="0" cellpadding="0" style='width: 100%;'>
+<tr>
+<td style='width: 50%; vertical-align: top;'>
+<table cellspacing="0" cellpadding="0">
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+		<td><p>1</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(2,7)'><p id='2-7' style='display: none;'>М</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td>
+		<td><p>2</p></td>
+		<td class='gray' onclick='otkr(3,4)'><p id='3-4' style='display: none;'>Р</p></td>
+		<td class='gray' onclick='otkr(3,5)'><p id='3-5' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(3,6)'><p id='3-6' style='display: none;'>З</p></td>
+		<td class='gray' onclick='otkr(3,7)'><p id='3-7' style='display: none;'>У</p></td>
+		<td class='gray' onclick='otkr(3,8)'><p id='3-8' style='display: none;'>М</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td><p>3</p></td>
+		<td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(4,7)'><p id='4-7' style='display: none;'>Ж</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td><p>6</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(5,4)'><p id='5-4' style='display: none;'>С</p></td>
+		<td><p>4</p></td>
+		<td class='gray' onclick='otkr(5,6)'><p id='5-6' style='display: none;'>Д</p></td>
+		<td class='gray' onclick='otkr(5,7)'><p id='5-7' style='display: none;'>Е</p></td>
+		<td class='gray' onclick='otkr(5,8)'><p id='5-8' style='display: none;'>Й</p></td>
+		<td class='gray' onclick='otkr(5,9)'><p id='5-9' style='display: none;'>С</p></td>
+		<td class='gray' onclick='otkr(5,10)'><p id='5-10' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(5,11)'><p id='5-11' style='display: none;'>В</p></td>
+		<td class='gray' onclick='otkr(5,12)'><p id='5-12' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(5,13)'><p id='5-13' style='display: none;'>Е</p></td>
+		<td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(6,4)'><p id='6-4' style='display: none;'>В</p></td>
+		<td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(6,7)'><p id='6-7' style='display: none;'>С</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(6,11)'><p id='6-11' style='display: none;'>О</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td><p>5</p></td>
+		<td class='gray' onclick='otkr(7,3)'><p id='7-3' style='display: none;'>П</p></td>
+		<td class='gray' onclick='otkr(7,4)'><p id='7-4' style='display: none;'>О</p></td>
+		<td class='gray' onclick='otkr(7,5)'><p id='7-5' style='display: none;'>Л</p></td>
+		<td class='gray' onclick='otkr(7,6)'><p id='7-6' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(7,7)'><p id='7-7' style='display: none;'>Т</p></td>
+		<td class='gray' onclick='otkr(7,8)'><p id='7-8' style='display: none;'>И</p></td>
+		<td class='gray' onclick='otkr(7,9)'><p id='7-9' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(7,10)'><p id='7-10' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(7,11)'><p id='7-11' style='display: none;'>Л</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(8,4)'><p id='8-4' style='display: none;'>Б</p></td>
+		<td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(8,7)'><p id='8-7' style='display: none;'>В</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(8,11)'><p id='8-11' style='display: none;'>Я</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(9,4)'><p id='9-4' style='display: none;'>О</p></td>
+		<td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(9,7)'><p id='9-7' style='display: none;'>О</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td>
+		<td class='gray' onclick='otkr(10,4)'><p id='10-4' style='display: none;'>Д</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td>
+		<td><p>7</p></td>
+		<td class='gray' onclick='otkr(11,3)'><p id='11-3' style='display: none;'>К</p></td>
+		<td class='gray' onclick='otkr(11,4)'><p id='11-4' style='display: none;'>А</p></td>
+		<td class='gray' onclick='otkr(11,5)'><p id='11-5' style='display: none;'>Н</p></td>
+		<td class='gray' onclick='otkr(11,6)'><p id='11-6' style='display: none;'>Т</p></td>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+	<tr>
+		<td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td>
+	</tr>
+</table>
+</td>
+<td style='width: 50%; vertical-align: top; padding-left: 2vmax;'>
+<h1 onclick='otkrm(2,7,9,7);'>1. Какая добродетель, по мнению автора и Черчилля, необходима для политического действия и избавляет людей от тревоги за жизнь?</h1>
+<h1 onclick='otkrm(3,4,3,8);'>2. Что, согласно Канту, вносит порядок во все чувственные данные и содержит категорию каузальности?</h1>
+<h1 onclick='otkrm(5,4,11,4);'>3. Что является raison d'être (смыслом существования) политики, согласно тексту?</h1>
+<h1 onclick='otkrm(5,6,5,13);'>4. В чем, по мнению Арендт, свобода изначально дает о себе знать (наряду со словом)?</h1>
+<h1 onclick='otkrm(7,3,7,10);'>5. Сфера, в которой свобода всегда была известна не как проблема, а как факт повседневной жизни.</h1>
+<h1 onclick='otkrm(5,11,8,11);'>6. Какую способность христианская традиция (особенно начиная с Павла и Августина) сделала гарантом свободы?</h1>
+<h1 onclick='otkrm(11,3,11,6);'>7. Философ, который пытался спасти свободу от атаки каузальности, введя различение между чистым и практическим разумом.</h1>
+</td>
+</tr>
+</table>
+
+<h1 style='position: fixed; bottom: 2vmax; right: 2vmax; text-align: right;'>Нажмите на вопрос<br>или ячейку, чтобы открыть ответ</h1>
+
+</body>
+
+<script>
+function otkr(a,b){
+	var el = document.getElementById(a + '-' + b);
+    if(el) el.style.display = 'block';
+}
+function otkrm(a,b,c,d){
+	for(var i=a; i<=c; i++){
+		for(var j=b; j<=d; j++){
+            var el = document.getElementById(i + '-' + j);
+			if(el) el.style.display = 'block';
+		}
+	}
+}
+</script>

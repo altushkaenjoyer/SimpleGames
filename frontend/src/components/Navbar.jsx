@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
-        <Link to="/" className="site-name">SIMPLEGAMES<span className="cursor" /></Link>
+        <Link to="/" className="site-name">SYILAB GAMES<span className="cursor" /></Link>
         <div className="nav-actions">
           <button onClick={() => dispatch(toggleTheme())} className="nav-btn theme-btn">
             {theme === 'dark' ? 'NIGHT' : 'NEON'}

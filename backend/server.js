@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -14,6 +15,13 @@ app.use('/games', require('./routes/games'));
 app.use('/comments', require('./routes/comments'));
 app.use('/admin', require('./routes/admin'));
 app.use('/discussions', require('./routes/discussions'));
+
+// serve built frontend + SPA fallback
+const distPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(distPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

@@ -72,27 +72,27 @@ export default function AdminGameDetail() {
 			</div>
 			<Link to="/admin/games" className="back">Назад к играм</Link>
 
-			<div className="game-card-admin">
-				<div className="game-header">
-					<div className="game-icon-wrap" onClick={() => iconRef.current?.click()} title="Сменить иконку">
+			<div className="agc">
+				<div className="agc-header">
+					<div className="agc-icon-wrap" onClick={() => iconRef.current?.click()}>
 						{game.icon
-							? <img src={assetUrl(game.icon)} className="game-icon" alt="" />
-							: <div className="game-icon-placeholder">?</div>
+							? <img src={assetUrl(game.icon)} alt="" />
+							: <div className="agc-icon-empty">?</div>
 						}
-						<div className="icon-overlay">Сменить</div>
+						<div className="agc-icon-overlay">СМЕНИТЬ</div>
 						<input ref={iconRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleIconChange} />
 					</div>
-					<div>
-						<h1>{game.name}</h1>
-						<div className="game-meta">
-							<span>♥ {game.likes.length} лайков</span>
+					<div className="agc-info">
+						<h1 className="agc-title">{game.name}</h1>
+						<div className="agc-meta">
+							<span>♥ {game.likes.length}</span>
 							<span>·</span>
-							<span>{game.categories.join(', ') || 'Нет категорий'}</span>
+							<span>{game.categories.join(', ') || 'Без категорий'}</span>
 						</div>
+						<p className="agc-desc">{game.description}</p>
 					</div>
 				</div>
-				<p className="game-desc">{game.description}</p>
-				<div className="game-admin-actions">
+				<div className="agc-actions">
 					<Link to={`/edit-game/${game.id}`} className="btn-edit-game">Изменить</Link>
 					<button onClick={() => setShowDeleteGame(true)} className="btn-delete-game">Удалить</button>
 				</div>

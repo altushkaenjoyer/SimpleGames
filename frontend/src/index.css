@@ -2076,3 +2076,120 @@ label {
 }
 
 .forum-login-prompt a { color: var(--cyan); text-decoration: underline; }
+
+/* ── Admin Game Card ─────────────────── */
+.agc {
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 24px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.agc-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.agc-icon-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.agc-icon-wrap img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 8px #00d4ff44;
+  display: block;
+}
+
+.agc-icon-empty {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  color: var(--dim);
+  font-size: 1.5rem;
+}
+
+.agc-icon-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  color: var(--cyan);
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  font-family: var(--font-pixel);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.agc-icon-wrap:hover .agc-icon-overlay { opacity: 1; }
+
+.agc-info { flex: 1; min-width: 0; }
+
+.agc-title {
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  color: var(--cyan);
+  text-shadow: var(--cyan-glow);
+  margin-bottom: 8px;
+}
+
+.agc-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--dim);
+  margin-bottom: 10px;
+}
+
+.agc-desc {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.agc-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-edit-game {
+  padding: 8px 18px;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-edit-game:hover { background: var(--cyan); color: #000; }
+
+.btn-delete-game {
+  padding: 8px 18px;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-delete-game:hover { background: var(--pink); color: #000; }

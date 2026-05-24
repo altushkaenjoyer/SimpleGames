@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { getGame, adminDeleteGame, adminDeleteComment, assetUrl } from '../../api';
+import { getGame, adminDeleteGame, adminDeleteComment, updateGame, assetUrl } from '../../api';
 import ConfirmModal from '../../components/ConfirmModal';
 
 export default function AdminGameDetail() {
@@ -10,6 +10,21 @@ export default function AdminGameDetail() {
 
 	const [game, setGame] = useState(null);
 	const [showDeleteGame, setShowDeleteGame] = useState(false);
+	const iconRef = useRef(null);
+
+	async function handleIconChange(e) {
+		const file = e.target.files[0];
+		if (!file) return;
+		try {
+			const fd = new FormData();
+			fd.append('icon', file);
+			const updated = await updateGame(game.id, fd);
+			setGame(prev => ({ ...prev, icon: updated.icon }));
+			toast.success('Иконка обновлена');
+		} catch {
+			toast.error('Не удалось обновить иконку');
+		}
+	}
 
 	useEffect(() => {
 		getGame(id).then(data => setGame(data));
@@ -59,14 +74,20 @@ export default function AdminGameDetail() {
 
 			<div className="game-card-admin">
 				<div className="game-header">
-					{game.icon && (
-						<img src={assetUrl(game.icon)} className="game-icon" alt="" />
-					)}
+					<div className="game-icon-wrap" onClick={() => iconRef.current?.click()} title="Сменить иконку">
+						{game.icon
+							? <img src={assetUrl(game.icon)} className="game-icon" alt="" />
+							: <div className="game-icon-placeholder">?</div>
+						}
+						<div className="icon-overlay">Сменить</div>
+						<input ref={iconRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleIconChange} />
+					</div>
 					<div>
 						<h1>{game.name}</h1>
 						<div className="game-meta">
 							<span>♥ {game.likes.length} лайков</span>
-							<span>{game.categories.join(', ') || 'Нет категориев'}</span>
+							<span>·</span>
+							<span>{game.categories.join(', ') || 'Нет категорий'}</span>
 						</div>
 					</div>
 				</div>

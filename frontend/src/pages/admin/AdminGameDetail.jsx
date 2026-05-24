@@ -3,7 +3,6 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getGame, adminDeleteGame, adminDeleteComment, assetUrl } from '../../api';
 import ConfirmModal from '../../components/ConfirmModal';
-import Heart from '../../images/Heart.png';
 
 export default function AdminGameDetail() {
 	const { id } = useParams();
@@ -66,7 +65,7 @@ export default function AdminGameDetail() {
 					<div>
 						<h1>{game.name}</h1>
 						<div className="game-meta">
-							<span><img src={Heart} alt="likes" /> {game.likes.length} лайков</span>
+							<span>♥ {game.likes.length} лайков</span>
 							<span>{game.categories.join(', ') || 'Нет категориев'}</span>
 						</div>
 					</div>

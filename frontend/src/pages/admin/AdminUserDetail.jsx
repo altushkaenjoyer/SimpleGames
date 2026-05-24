@@ -102,7 +102,7 @@ export default function AdminUserDetail() {
             {user.banned ? 'Разблокировать' : 'Заблокировать'}
           </button>
           <button onClick={handleMute} className={`btn-action ${user.muted ? 'btn-unmute' : 'btn-mute'}`}>
-            {user.muted ? 'Размутить' : 'Замутить'}
+            {user.muted ? 'Размьютить' : 'Замьютить'}
           </button>
           <button onClick={() => setShowDeleteUser(true)} className="btn-delete-user">Удалить пользователя</button>
         </div>

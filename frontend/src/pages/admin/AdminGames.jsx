@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { adminGetGames, adminDeleteGame } from '../../api';
 import ConfirmModal from '../../components/ConfirmModal';
-import Heart from '../../images/Heart.png';
-import Comment from '../../images/Comment.png';
 
 export default function AdminGames() {
   const [games, setGames] = useState([]);
@@ -54,8 +52,8 @@ export default function AdminGames() {
           <div key={game.id} className="table-row">
             <Link to={`/game/${game.id}`} className="t-game-name">{game.name}</Link>
             <span className="t-cats">{game.categories.join(', ') || '—'}</span>
-            <span className="t-stat"><img src={Heart} alt="likes" /> {game.likes.length}</span>
-            <span className="t-stat"><img src={Comment} alt="commentCount" /> {game.commentCount}</span>
+            <span className="t-stat">♥ {game.likes.length}</span>
+            <span className="t-stat">💬 {game.commentCount}</span>
             <div className="t-actions">
               <Link to={`/admin/games/${game.id}`} className="manage-btn">Управление</Link>
               <button onClick={() => setDeleteTarget(game.id)} className="btn-del">Удалить</button>

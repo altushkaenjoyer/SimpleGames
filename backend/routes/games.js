@@ -33,8 +33,8 @@ function findIndexHtml(dir) {
 
 function parseCategories(categories) {
   if (!categories) return [];
-  if (Array.isArray(categories)) return categories;
-  return categories.split(',').map(c => c.trim()).filter(Boolean);
+  const arr = Array.isArray(categories) ? categories : categories.split(',');
+  return arr.map(c => c.trim().toLowerCase()).filter(Boolean);
 }
 
 function isOwnerOrAdmin(resource, userId, userRole) {

@@ -51,7 +51,7 @@
     "name": "Crossword2",
     "description": "asd asd asdasd  asdasd",
     "categories": [
-      "RPG"
+      "rpg"
     ],
     "icon": "/uploads/icons/366a385c-ea28-4db5-b67e-9b7d2ba2a4cc.png",
     "htmlFile": "/uploads/games/36420b02-8559-4832-bd87-61b276f1e9a3.html",
@@ -81,8 +81,8 @@
     "name": "Pixel Defense",
     "description": "Защищай свои владения от вторженцев!",
     "categories": [
-      "Tower Defense",
-      "Strategy"
+      "tower defense",
+      "strategy"
     ],
     "icon": null,
     "htmlFile": "/uploads/games/b032ce7e-4e41-4271-bdda-5c37f39dc0b0/src/index.html",
@@ -98,8 +98,8 @@
     "name": "HexGl",
     "description": "Футуристичная гоночная игра, хайп!",
     "categories": [
-      "Racing",
-      "Action"
+      "racing",
+      "action"
     ],
     "icon": "/uploads/icons/17106a3c-55c7-4e0f-b4ba-2cf901499dfc.png",
     "htmlFile": "/uploads/games/9c9f6a9e-c493-46fb-ba58-8108845ab7f2/HexGL-master/index.html",

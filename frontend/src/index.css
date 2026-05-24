@@ -26,7 +26,7 @@
   --font-mono:  'Share Tech Mono', 'Courier New', monospace;
 }
 
-/* ── Night theme (data-theme="light") ── */
+/* ── Night theme */
 [data-theme="light"] {
   --bg:       #0f0f11;
   --bg2:      #161618;
@@ -130,7 +130,7 @@
 [data-theme="light"] .like-btn:hover,
 [data-theme="light"] .submit-btn:hover { box-shadow: none; }
 
-/* ── Reset ───────────────────────────── */
+/*Reset*/
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
